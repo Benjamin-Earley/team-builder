@@ -1,45 +1,21 @@
 import React, { useState } from 'react';
 import './App.css';
+import Form from '../src/Form'
 
 function App() {
-  const [user, setUser] = useState({firstName: '', lastName: ''})
-  const handleChange = evt => {
-    setUser({ ...user, [evt.target.name]: evt.target.value})
+  const [user, setUser] = useState({name: '', email: '', role: ''})
+  const handleChange = event => {
+    setUser({ ...user, [event.target.name]: event.target.value})
   }
-  const handleSubmit = evt => {
-    evt.preventDefault()
-    setUser({ firstName: '', lastName: ''})
+  const handleSubmit = event => {
+    event.preventDefault()
+    setUser({ name: '', email: '', role: ''})
     // console.log(user.firstName, user.lastName)
   }
   return (
     <div className="App">
       {console.log(user)}
-      <form onSubmit={evt => {handleSubmit(evt)}}>
-        <label>
-          First Name: 
-          <input onChange={event => handleChange(event)}
-          maxLength='20'
-          placeholder='First Name'
-          id='firstNameInput'
-          name='firstName'
-          value={user.firstName}
-          type='text'
-          />
-        </label>
-        <label>
-          Last Name: 
-          <input onChange={event => handleChange(event)}
-          maxLength='20'
-          placeholder='Last Name'
-          id='lastNameInput'
-          name='lastName'
-          value={user.lastName}
-          type='text'
-          />
-        </label>
-        <button>Submit</button>
-      </form>
-      <h5>Welcome to the team, {user.firstName} {user.lastName}!</h5>
+      <Form user={user} handleChange={handleChange} handleSubmit={handleSubmit}/>
     </div>
   );
 }
