@@ -10,7 +10,7 @@ function App() {
   const handleSubmit = event => {
     event.preventDefault()
     setUser({ name: '', email: '', role: ''})
-    // console.log(user.firstName, user.lastName)
+    // console.log(user.name)
   }
   return (
     <div className="App">

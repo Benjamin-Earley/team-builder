@@ -39,7 +39,7 @@ function Form(props) {
             </label>
             <button>Submit</button>
             </form>
-            <h5>Welcome to the team, {props.user.firstName} {props.user.lastName}!</h5>
+            <h5>Welcome to the team, {props.user.name}! We're lucky to have {props.user.role}s like you on board!</h5>
         </div>
     )
 }
